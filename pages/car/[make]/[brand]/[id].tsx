@@ -1,8 +1,8 @@
+import { GetServerSideProps } from "next";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
 
 import { CarModel } from "@components/carModel";
 import { openDb } from "@components/openDb";
@@ -73,7 +73,6 @@ export default function CarDetails({ car }: CarDetailsProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  console.log(ctx.params);
   const { make, brand, id } = ctx.params;
   const db = await openDb();
   const car = await db.all("SELECT * FROM Car where id = ?", id);
