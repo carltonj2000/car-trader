@@ -7,8 +7,6 @@ import React from "react";
 import { SWRConfig } from "swr";
 import { Nav } from "@components/nav";
 
-const baseURL = "http://localhost:4001";
-
 // Create a theme instance.
 export const theme = createMuiTheme({
   palette: {

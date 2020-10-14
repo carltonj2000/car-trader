@@ -40,7 +40,6 @@ export default function CarDetails({ car }: CarDetailsProps) {
     price,
     photoUrl,
   } = car;
-  console.log(photoUrl);
   if (!car) return <h1>Sorry, Car Not Found!</h1>;
   return (
     <div className={classes.root}>
