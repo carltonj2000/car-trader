@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -43,6 +44,11 @@ export default function CarDetails({ car }: CarDetailsProps) {
   if (!car) return <h1>Sorry, Car Not Found!</h1>;
   return (
     <div className={classes.root}>
+      <Head>
+        <title>
+          {make} {model}
+        </title>
+      </Head>
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={5}>

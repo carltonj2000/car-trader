@@ -37,7 +37,6 @@ export async function getPaginateCars(query: ParsedUrlQuery) {
 
   const [cars, totalRows] = await Promise.all([carsPromise, totalRowsPromise]);
 
-  console.log("cars", dbParams, cars);
   return { cars, totalPages: Math.ceil(totalRows?.count / rowsPerPage) };
 }
 
