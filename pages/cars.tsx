@@ -55,18 +55,19 @@ interface MaterialUiLinkProps {
   item: PaginationRenderItemParams;
   query: ParsedUrlQuery;
 }
-function MaterialUiLink({ item, query, ...props }: MaterialUiLinkProps) {
-  return (
+
+const MaterialUiLink = React.forwardRef<HTMLAnchorElement, MaterialUiLinkProps>(
+  ({ item, query, ...props }, ref) => (
     <Link
       href={{
         pathname: "/cars",
         query: { ...query, page: item.page },
       }}
     >
-      <a {...props}></a>
+      <a ref={ref} {...props}></a>
     </Link>
-  );
-}
+  )
+);
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const make = getAsString(ctx.query.make);
